@@ -28,8 +28,8 @@ const SettingsPlugin = Vencord.Plugins.plugins
 
 SettingsPlugin.customEntries.push({
     key: "vesktop",
-    title: "Vesktop",
-    panelTitle: "Vesktop Settings",
+    title: "Workcord App",
+    panelTitle: "Workcord App Settings",
     Component: SettingsUi,
     Icon: VesktopSettingsIcon
 });

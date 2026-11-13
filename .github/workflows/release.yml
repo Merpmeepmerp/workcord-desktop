@@ -46,9 +46,16 @@ jobs:
 
             - name: Run Electron Builder
               if: ${{ matrix.platform == 'mac' }}
+              # Without Apple signing secrets, build unsigned instead of failing
+              # (testers then need right-click → Open the first time).
               run: |
-                  echo "$API_KEY" > apple.p8
-                  pnpm electron-builder --${{ matrix.platform }} --publish always
+                  if [ -z "$CSC_LINK" ]; then
+                      unset CSC_LINK CSC_KEY_PASSWORD APPLE_API_KEY APPLE_API_KEY_ID APPLE_API_ISSUER
+                      pnpm electron-builder --${{ matrix.platform }} --publish always -c.mac.identity=null -c.mac.notarize=false
+                  else
+                      echo "$API_KEY" > apple.p8
+                      pnpm electron-builder --${{ matrix.platform }} --publish always
+                  fi
               env:
                   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                   CSC_LINK: ${{ secrets.APPLE_SIGNING_CERT }}

@@ -81,7 +81,7 @@ function initMenuBar(win: BrowserWindow) {
 
     const subMenu = [
         {
-            label: "About Vesktop",
+            label: "About Workcord",
             click: createAboutWindow
         },
         {
@@ -90,14 +90,14 @@ function initMenuBar(win: BrowserWindow) {
                 await downloadVencordFiles();
                 relaunch();
             },
-            toolTip: "Vesktop will automatically restart after this operation"
+            toolTip: "Workcord will automatically restart after this operation"
         },
         {
-            label: "Reset Vesktop",
+            label: "Reset Workcord",
             async click() {
                 await clearData(win);
             },
-            toolTip: "Vesktop will automatically restart after this operation"
+            toolTip: "Workcord will automatically restart after this operation"
         },
         {
             label: "Relaunch",
@@ -180,7 +180,7 @@ function initMenuBar(win: BrowserWindow) {
 
     const menuItems = [
         {
-            label: "Vesktop",
+            label: "Workcord",
             role: "appMenu",
             submenu: subMenu.filter(isTruthy)
         },
@@ -290,7 +290,7 @@ function initStaticTitle(win: BrowserWindow) {
 
     addSettingsListener("staticTitle", enabled => {
         if (enabled) {
-            win.setTitle("Vesktop");
+            win.setTitle("Workcord");
             win.on("page-title-updated", listener);
         } else {
             win.off("page-title-updated", listener);
@@ -395,7 +395,7 @@ function buildBrowserWindowOptions(): BrowserWindowConstructorOptions {
     }
 
     if (staticTitle) {
-        options.title = "Vesktop";
+        options.title = "Workcord";
     }
 
     if (process.platform === "darwin") {
@@ -499,8 +499,8 @@ function retryUrl(url: string, description: string) {
 async function showStartupError(error: unknown) {
     const { response } = await dialog.showMessageBox({
         type: "error",
-        message: "Vesktop failed to start",
-        detail: `${error}\n\nRepair will re-download Vencord and restart Vesktop.`,
+        message: "Workcord failed to start",
+        detail: `${error}\n\nRepair will re-download Vencord and restart Workcord.`,
         buttons: ["Repair", "Quit"],
         defaultId: MessageBoxChoice.Default,
         cancelId: MessageBoxChoice.Cancel

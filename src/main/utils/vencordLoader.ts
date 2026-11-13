@@ -10,7 +10,7 @@ import { join } from "path";
 
 import { VENCORD_FILES_DIR } from "main/vencordFilesDir";
 
-import { USER_AGENT } from "../constants";
+import { USER_AGENT, WORKCORD_MOD_REPO } from "../constants";
 import { downloadFile, fetchie } from "./http";
 
 const API_BASE = "https://api.github.com";
@@ -46,7 +46,7 @@ export async function githubGet(endpoint: string) {
 }
 
 export async function downloadVencordFiles() {
-    const release = await githubGet("/repos/Vendicated/Vencord/releases/latest");
+    const release = await githubGet(`/repos/${WORKCORD_MOD_REPO}/releases/latest`);
 
     const { assets }: ReleaseData = await release.json();
     const files = assets.filter(({ name }) => FILES_TO_DOWNLOAD.some(f => name.startsWith(f)));

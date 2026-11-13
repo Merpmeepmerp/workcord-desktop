@@ -52,7 +52,7 @@ function openUpdater(update: UpdateInfo) {
     }
 
     updaterWindow = new BrowserWindow({
-        title: "Vesktop Updater",
+        title: "Workcord Updater",
         autoHideMenuBar: true,
         webPreferences: {
             preload: join(__dirname, "updaterPreload.js")

@@ -66,7 +66,7 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
         {
             key: "staticTitle",
             title: "Static Title",
-            description: 'Makes the window title "Vesktop" instead of changing to the current page'
+            description: 'Makes the window title "Workcord" instead of changing to the current page'
         },
         {
             key: "enableMenu",
@@ -90,7 +90,7 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
             key: "enableSplashScreen",
             title: "Enable Splash Screen",
             description:
-                "Shows a small splash screen while Vesktop is loading. Disabling this option will show the main window earlier while it's still loading."
+                "Shows a small splash screen while Workcord is loading. Disabling this option will show the main window earlier while it's still loading."
         },
         {
             key: "splashTheming",
@@ -104,13 +104,13 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
         {
             key: "tray",
             title: "Tray Icon",
-            description: "Add a tray icon for Vesktop",
+            description: "Add a tray icon for Workcord",
             invisible: () => isMac
         },
         {
             key: "minimizeToTray",
             title: "Minimize to tray",
-            description: "Hitting X will make Vesktop minimize to the tray instead of closing",
+            description: "Hitting X will make Workcord minimize to the tray instead of closing",
             invisible: () => isMac,
             disabled: () => !Settings.store.tray
         },
@@ -142,13 +142,13 @@ const SettingsOptions: Record<string, Array<BooleanSetting | SettingsComponent>>
         {
             key: "arRPC",
             title: "Rich Presence",
-            description: "Lets games and apps connect to Vesktop for Rich Presence and game detection"
+            description: "Lets games and apps connect to Workcord for Rich Presence and game detection"
         },
 
         {
             key: "openLinksWithElectron",
             title: "Open Links in app (experimental)",
-            description: "Opens links in a new Vesktop window instead of your web browser"
+            description: "Opens links in a new Workcord window instead of your web browser"
         },
 
         WebRTCIPHandlingPolicyPicker
@@ -203,6 +203,6 @@ export default ErrorBoundary.wrap(
     },
     {
         message:
-            "Failed to render the Vesktop Settings tab. If this issue persists, try to right click the Vesktop tray icon, then click 'Repair Vencord'. And make sure your Vesktop is up to date."
+            "Failed to render the Workcord App Settings tab. If this issue persists, try to right click the Workcord tray icon, then click 'Repair Vencord'. And make sure your Workcord app is up to date."
     }
 );
